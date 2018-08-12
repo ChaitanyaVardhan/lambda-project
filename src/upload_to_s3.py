@@ -16,7 +16,7 @@ def lambda_handler(event, context):
 
     print("reading excel")
     data_frame = pd.read_excel('https://s3.amazonaws.com/json-file-bucket/ISO10383_MIC.xls'
-, sheet_name='MICs Modifications', engine=None)
+, sheet_name='MICs List by CC', engine=None)
 
     row_list = data_frame.to_dict(orient='row')
 
@@ -29,7 +29,8 @@ def lambda_handler(event, context):
 
     file_name = 'data.json'
 
-    file_object = s3_client.put_object(Bucket=bucket_name, Key=file_name)    
+    with open('data.json', 'rb') as data:
+        s3_client.upload_fileobj(data, bucket_name, file_name)
 
     return 'Returning from Lambda'
 

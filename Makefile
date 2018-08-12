@@ -1,6 +1,6 @@
 virtual_env = venv
 src = src
-project = lambda_project
+project = upload_to_s3
 
 install: virtual
 build: clean_package build_package_tmp copy_python zip remove_tmp
@@ -11,6 +11,7 @@ virtual:
 	   sudo apt-get install -y python3-pip; \
 	   sudo pip3 install virtualenv; \
 	   virtualenv $(virtual_env); \
+	   source $(virtual_env)/bin/activate; \
 	 fi
 	 @echo ""	
 
