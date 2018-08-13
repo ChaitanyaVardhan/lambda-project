@@ -1,5 +1,5 @@
 # lambda-project
-This repository contains a lambda function that that reads a tab in an xls file stored in a S3 repository and writes a json file back
+This repository contains a lambda function that reads a tab in an xls file stored in a S3 repository and writes a json file back
 to the S3 repository.
 ### Deployment
 The easiest way to deploy this lambda function is by using the AWS Cloud 9 environment. Below are the steps to deploy this function in
